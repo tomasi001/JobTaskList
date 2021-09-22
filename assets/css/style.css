@@ -1,5 +1,7 @@
+/* import fonts from google api */
 @import url("https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap");
 
+/* create colour presets for root element*/
 :root {
   --dark: #2b2d42;
   --light: #adb5bd;
@@ -7,57 +9,79 @@
   --border-btn: #edf2f4;
 }
 
+/* apply styling listed below to all elements */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* apply styling listed below to all a elements */
 a {
   text-decoration: none;
   font-family: "PT Sans", sans-serif;
 }
 
+/* apply styling listed below to container class */
 .container {
   max-width: 1024px;
   margin: auto;
 }
 
+/* apply styling listed below to nav-brand class */
 .nav-brand {
   font-size: 1.5em;
   font-weight: bold;
 }
 
+/* apply styling listed below to d-flex class */
 .d-flex {
   display: flex;
   flex-wrap: wrap;
 }
 
+/* apply styling listed below to justify-between class */
 .justify-between {
   justify-content: space-between;
 }
 
+/* apply styling listed below to justify-start class */
+.justify-start {
+  justify-content: flex-start;
+}
+
+/* apply styling listed below to justify-end class */
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* apply styling listed below to text-center class */
 .text-center {
   text-align: center;
 }
 
+/* apply styling listed below to border-shadow class */
 .border-shadow {
   border: 1px solid var(--border-btn);
   box-shadow: 1px 3px 10px #e9ecef;
 }
 
+/* apply styling listed below to text-dark class */
 .text-dark {
   color: var(--dark);
 }
 
+/* apply styling listed below to inline class */
 .inline {
   display: inline-block;
 }
 
+/* apply styling listed below to text-light class */
 .text-light {
   color: var(--light);
 }
 
+/* apply styling listed below to text-gradient class */
 .text-gradient {
   background: linear-gradient(to right, #8e2de2, #4a00e0);
   -webkit-background-clip: text;
@@ -65,31 +89,40 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+/* apply styling listed below to all nav elements within in header id*/
 #header nav {
   background-color: #06d6a0;
   padding: 1em 0;
   width: 100%;
 }
 
+/* apply styling listed below to site-main id */
 #site-main {
   margin-top: 6em;
   font-family: "Barlow", sans-serif;
 }
 
+/* apply listed below to 
+all a elements within box-nav class within 
+container class within site-main id */
 #site-main .container .box-nav > a {
   font-size: 1em;
   padding: 0.5em 1em;
 }
 
+/* apply styling listed below to form elements within 
+container class within site-main id */
 #site-main .container form {
   margin: 2em 0;
 }
 
+/* apply styling listed below to table elements */
 table {
   border-spacing: 0px;
   width: 100%;
 }
 
+/* apply styling listed below to td and th elements within the table class */
 .table td,
 .table th {
   padding: 0.75em;
@@ -98,26 +131,40 @@ table {
   border-top: 1px solid var(--border);
 }
 
+/* apply styling listed below to btn class
+ within a elements which have td elements
+ as the parent elements */
 .table td > a.btn {
   padding: 0.3em 1em;
   font-size: 1.1em;
   margin: 0 0.2em;
 }
 
+/* apply hover styling listed below to 
+tr elements within the table class */
 .table tr:hover {
   background-color: #06d6a0;
 }
 
+/* apply hover styling listed below to 
+a elements with td elements as parent elements
+within tr elements within table class
+*/
 .table tr:hover td > a {
   box-shadow: none;
 }
 
+/* apply styling listed below to th 
+elements within thead-dark class
+within table class */
 .table .thead-dark th {
   color: #fff;
   background-color: var(--dark);
   border-color: #32383e;
 }
 
+/* apply styling listed below to all elements 
+listed below when browser is 1024px or less */
 @media only screen and (max-width: 1024px) {
   table,
   thead,
@@ -143,27 +190,34 @@ table {
     position: relative;
   }
 }
-
-/*  add user & update user template */
+/* apply styling listed below to form-title class */
 .form-title {
   margin-top: 2em;
 }
 
+/* apply styling listed below to h2 elements 
+with form-title class as a parent element */
 .form-title > h2 {
   padding: 0.5em 0;
 }
 
+/* apply styling listed below to new_job class*/
 .new_job {
   max-width: 786px;
   margin: auto;
 }
 
+/* apply styling listed below to form-group class 
+within  update_job id, update_status id and add_job id, */
 #update_job .form-group,
 #update_status .form-group,
 #add_job .form-group {
   margin: 0.4em 0;
 }
 
+/* apply styling listed below to input elements 
+of type text, within form-group class, within  
+update_job id, update_status id and add_job id, */
 #update_job .form-group input[type="text"],
 #update_status .form-group input[type="text"],
 #add_job .form-group input[type="text"] {
@@ -176,18 +230,25 @@ table {
   border-radius: 0.2em;
 }
 
+/* apply styling listed below to radio class,
+ within form-group class, within  
+update_job id, update_status id and add_job id, */
+/* apply styling listed below to */
 #update_job .form-group .radio,
 #update_status .form-group .radio,
 #add_job .form-group .radio {
   margin: 1em 2em;
 }
 
-/* adding style to radio buttons */
+/* apply styling listed below to input elements 
+of type radio, within radio class*/
 .radio input[type="radio"] {
   position: absolute;
   opacity: 0;
 }
 
+/* insert text with styling listed below before, radio-label class,
+within input elements of type radio, within radio class*/
 .radio input[type="radio"] + .radio-label:before {
   content: "";
   background: var(--border-btn);
@@ -206,22 +267,33 @@ table {
   transition: all 250ms ease;
 }
 
+/* insert text with styling listed below, before radio-label class, 
+within input elements of type radio, within radio class
+when radio is checked*/
 .radio input[type="radio"]:checked + .radio-label:before {
   background-color: #16db93;
   box-shadow: inset 0 0 0 4px #e9ecef;
 }
 
+/* insert text with styling listed below, before radio-label class, 
+within input elements of type radio, within radio class
+when radio is focussed on*/
 .radio input[type="radio"]:focus + .radio-label:before {
   outline: none;
   border-color: #16db93;
 }
 
+/* insert text with styling listed below, before radio-label class, 
+within input elements of type radio, within radio class
+when radio is disabled*/
 .radio input[type="radio"]:disabled + .radio-label:before {
   box-shadow: inset 0 0 0 4px #e9ecef;
   border-color: #b4b4b4;
   background: #b4b4b4;
 }
 
+/* apply styling listed below to btn class within form-group class,
+within update_job id, update_status id and add_job id */
 #update_job .form-group .btn,
 #update_status .form-group .btn,
 #add_job .form-group .btn {
@@ -236,6 +308,9 @@ table {
   margin: 0.5em 0;
 }
 
+/* apply styling listed below to btn class within form-group class,
+within update_job id, update_status id and add_job id 
+when btn is hovered over*/
 #update_job .form-group .btn:hover,
 #update_status .form-group .btn:hover,
 #add_job .form-group .btn:hover {

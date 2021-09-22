@@ -1,0 +1,33 @@
+# create new user in db
+
+POST http://localhost:3000/api/jobs
+Content-Type: application/x-www-form-urlencoded
+
+job= Comment Controller
+&description= Comment the controller file
+&location= Cape Town
+&priority= Low
+&status= Finished
+
+###
+# get all users from db
+
+GET http://localhost:3000/api/jobs
+
+###
+# get one user from db
+
+GET http://localhost:3000/api/jobs?id=6144b1e4943cfb7da0bf95ac
+
+###
+# update a user by id
+
+PUT http://localhost:3000/api/jobs/6144ad223fba7aa47dd08c3a
+Content-Type: application/x-www-form-urlencoded
+
+job=comment code
+
+###
+# delete a user by id
+
+DELETE http://localhost:3000/api/jobs/6144ad223fba7aa47dd08c3a

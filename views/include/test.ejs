@@ -1,0 +1,21 @@
+<% var count = 1 %>
+<% for (var i = 0; i < job.length; i++) { %>
+<div class="form-group">
+<label for="status" class="text-light"><%= job[i].job %></label>
+<div class="radio inline">
+  <input type="radio" id=<%= "radio-" + count %> name="status" value="Submitted" <%= job[i].status == "Submitted" ? "checked" : "" %>/>
+  <label for=<%="radio-" + count %> class="radio-label">Submitted</label>
+</div>
+<% count++ %>
+<div class="radio inline">
+  <input type="radio" id=<%="radio-" + count %> name="status" value="In Progress" <%= job[i].status == "In Progress" ? "checked" : "" %>/>
+  <label for=<%="radio-" + count %> class="radio-label">In Progress</label>
+</div>
+<% count++ %>
+<div class="radio inline">
+  <input type="radio" id=<%="radio-" + count %> name="status" value="Complete" <%= job[i].status == "Complete" ? "checked" : "" %>/>
+  <label for=<%="radio-" + count %> class="radio-label">Complete</label>
+</div>
+<% count++ %>
+</div>
+<% } %>

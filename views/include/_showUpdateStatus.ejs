@@ -1,0 +1,35 @@
+ <!-- form handling -->
+
+ <form method="POST" id="update_status">
+    <div class="new_job">
+      <% var count = 1 %>
+      <% for (var i = 0; i < job.length; i++) { %>
+        <div class="form-group">
+            <div>
+                <input type="hidden" name="id" value="<%= job[i]._id%>" />
+                <label for="status" class="text-light"><%= job[i].job %></label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id=<%= count %> name=<%= "status" + (i+1) %> value="Submitted" <%= job[i].status == "Submitted" ? "checked" : "" %>/>
+                <label for=<%= count %> class="radio-label">Submitted</label>
+            </div>
+                <% count++ %>
+            <div class="radio inline">
+                <input type="radio" id=<%= count %> name=<%= "status" + (i+1) %> value="In Progress" <%= job[i].status == "In Progress" ? "checked" : "" %>/>
+                <label for=<%= count %> class="radio-label">In Progress</label>
+            </div>
+            <% count++ %>
+            <div class="radio inline">
+                <input type="radio" id=<%= count %> name=<%= "status" + (i+1) %> value="Complete" <%= job[i].status == "Complete" ? "checked" : "" %>/>
+                <label for=<%= count %> class="radio-label">Complete</label>
+            </div>
+            <% count++ %>
+        </div>
+
+    <% } %>
+    <div class="form-group">
+      <button type="submit" class="btn text-dark update">Save</button>
+    </div>
+    </div>
+  </form>
+  <!-- /form handling -->

@@ -1,0 +1,46 @@
+<!-- include header -->
+<%- include("include/_header") %>
+<!-- /include header -->
+
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/">
+          <i class="fas fa-angle-double-left"></i>
+          Back to Sort by Date
+        </a>
+      </div>
+    </div>
+
+    <div class="form-title text-center">
+      <span class="text-light">
+        The Table is Currently Sorted By The Current Status of Each Job
+      </span>
+    </div>
+
+    <br />
+    <br />
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Job Title</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- include("include/_showStatus") %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- include footer -->
+<%- include("include/_footer") %>
+<!-- /include footer -->

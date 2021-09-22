@@ -1,0 +1,29 @@
+<% var count = 1 %>
+<% for (var i = 0; i < job.length; i++) { %>
+    <% if(job[i].status == "Complete" || job[i].status == "In Progress") {%>
+        
+    <% } else { %>
+        <tr data-id=<%= job[i]._id %> archived=<%= job[i].archived %>>
+            <td><%=count %></td>
+            <td><%=job[i].job %></td>
+            <td><%=job[i].description %></td>
+            <td><%=job[i].location %></td>
+            <td><%=job[i].priority %></td>
+            <td><%=job[i].status %></td>
+            <td>
+              <a href="/update-job?id=<%=job[i]._id %>" class="btn border-shadow update">
+                <span class="text-gradient">
+                  <i class="fas fa-pencil-alt"></i>
+                </span>
+              </a>
+              <a class="btn border-shadow delete" data-id=<%= job[i]._id %>>
+                <span class="text-gradient">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+              </a>
+            </td>
+          </tr>
+          <% count++ %>
+    <% } %>
+<% } %>
+    

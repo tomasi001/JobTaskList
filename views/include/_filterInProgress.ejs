@@ -1,9 +1,10 @@
 <% var count = 1 %>
 <% for (var i = 0; i < job.length; i++) { %>
+    <!-- if status of job is equal to complete or submitted, don't display anything -->
     <% if(job[i].status == "Complete" || job[i].status == "Submitted") {%>
-        
+    <!-- else display information of job -->
     <% } else { %>
-        <tr data-id=<%= job[i]._id %> archived=<%= job[i].archived %>>
+        <tr data-id=<%= job[i]._id %>>
             <td><%=count %></td>
             <td><%=job[i].job %></td>
             <td><%=job[i].description %></td>

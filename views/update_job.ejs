@@ -7,6 +7,7 @@
   <div class="container">
     <div class="box-nav d-flex justify-between">
       <div class="filter">
+        <!-- create button to go back to home route -->
         <a href="/">
           <i class="fas fa-angle-double-left"></i>
           All Jobs
@@ -22,77 +23,92 @@
 
     <!-- add job form -->
     <!-- form handling -->
-<form method="POST" id="update_job">
-    <div class="new_job">
-      <div class="form-group">
-        <label for="job" class="text-light">Job Title</label>
-        <input type="hidden" name="id" value="<%= job._id%>" />
-        <input type="text" name="job" value="<%= job.job%>" placeholder="Update Views" />
-      </div>
-      <div class="form-group">
-        <label for="description" class="text-light">Description</label>
-        <input
-          type="text"
-          name="description"
-          value="<%= job.description%>"
-          placeholder="update the view in the index.ejs file"
-        />
-      </div>
-      <div class="form-group">
-        <label for="location" class="text-light">Location</label>
-        <input type="text" name="location" value="<%= job.location%>" placeholder="Cape Town" />
-      </div>
-      <div class="form-group">
-        <label for="priority" class="text-light">Priority</label>
-        <div class="radio inline">
-          <input type="radio" id="radio-1" name="priority" value="High" <%= job.priority == 'High' ? 'checked' : '' %>/>
-          <label for="radio-1" class="radio-label">High</label>
+    <!-- create form which is filled with information of job you wish to update -->
+    <form method="POST" id="update_job">
+      <div class="new_job">
+        <div class="form-group">
+          <label for="job" class="text-light">Job Title</label>
+          <input type="hidden" name="id" value="<%= job._id%>" />
+          <input
+            type="text"
+            name="job"
+            value="<%= job.job%>"
+            placeholder="Update Views"
+          />
         </div>
-        <div class="radio inline">
-          <input type="radio" id="radio-2" name="priority" value="Medium" <%= job.priority == 'Medium' ? 'checked' : '' %>/>
-          <label for="radio-2" class="radio-label">Medium</label>
+        <div class="form-group">
+          <label for="description" class="text-light">Description</label>
+          <input
+            type="text"
+            name="description"
+            value="<%= job.description%>"
+            placeholder="update the view in the index.ejs file"
+          />
         </div>
-        <div class="radio inline">
-          <input type="radio" id="radio-3" name="priority" value="Low" <%= job.priority == 'Low' ? 'checked' : '' %>/>
-          <label for="radio-3" class="radio-label">Low</label>
+        <div class="form-group">
+          <label for="location" class="text-light">Location</label>
+          <input
+            type="text"
+            name="location"
+            value="<%= job.location%>"
+            placeholder="Cape Town"
+          />
+        </div>
+        <div class="form-group">
+          <label for="priority" class="text-light">Priority</label>
+          <div class="radio inline">
+            <input type="radio" id="radio-1" name="priority" value="High" <%=
+            job.priority == 'High' ? 'checked' : '' %>/>
+            <label for="radio-1" class="radio-label">High</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" id="radio-2" name="priority" value="Medium" <%=
+            job.priority == 'Medium' ? 'checked' : '' %>/>
+            <label for="radio-2" class="radio-label">Medium</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" id="radio-3" name="priority" value="Low" <%=
+            job.priority == 'Low' ? 'checked' : '' %>/>
+            <label for="radio-3" class="radio-label">Low</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="status" class="text-light">Status</label>
+          <div class="radio inline">
+            <input type="radio" id="radio-4" name="status" value="Submitted" <%=
+            job.status == "Submitted" ? "checked" : "" %>/>
+            <label for="radio-4" class="radio-label">Submitted</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" id="radio-5" name="status" value="In Progress"
+            <%= job.status == "In Progress" ? "checked" : "" %>/>
+            <label for="radio-5" class="radio-label">In Progress</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" id="radio-6" name="status" value="Complete" <%=
+            job.status == "Complete" ? "checked" : "" %>/>
+            <label for="radio-6" class="radio-label">Complete</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="archive" class="text-light">Archive</label>
+          <div class="radio inline">
+            <input type="radio" id="radio-7" name="archived" value="Archive" <%=
+            job.archived == "Archive" ? "checked" : "" %>/>
+            <label for="radio-7" class="radio-label">Archive</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" id="radio-8" name="archived" value="Unarchive"
+            <%= job.archived == "Unarchive" ? "checked" : "" %>/>
+            <label for="radio-8" class="radio-label">Unarchive</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn text-dark update">Save</button>
         </div>
       </div>
-      <div class="form-group">
-        <label for="status" class="text-light">Status</label>
-        <div class="radio inline">
-          <input type="radio" id="radio-4" name="status" value="Submitted" <%= job.status == "Submitted" ? "checked" : "" %>/>
-          <label for="radio-4" class="radio-label">Submitted</label>
-        </div>
-        <div class="radio inline">
-          <input type="radio" id="radio-5" name="status" value="In Progress" <%= job.status == "In Progress" ? "checked" : "" %>/>
-          <label for="radio-5" class="radio-label">In Progress</label>
-        </div>
-        <div class="radio inline">
-          <input type="radio" id="radio-6" name="status" value="Complete" <%= job.status == "Complete" ? "checked" : "" %>/>
-          <label for="radio-6" class="radio-label">Complete</label>
-        </div>
-      </div>
-          <!-- test -->
-    <div class="form-group">
-      <label for="archive" class="text-light">Archive</label>
-      <div class="radio inline">
-        <input type="radio" id="radio-7" name="archived" value="Archive" <%= job.archived == "Archive" ? "checked" : "" %>/>
-        <label for="radio-7" class="radio-label">Archive</label>
-      </div>
-      <div class="radio inline">
-        <input type="radio" id="radio-8" name="archived" value="Unarchive" <%= job.archived == "Unarchive" ? "checked" : "" %>/>
-        <label for="radio-8" class="radio-label">Unarchive</label>
-      </div>
-    </div>
-    <!-- /test -->
-      <div class="form-group">
-        <button type="submit" class="btn text-dark update">Save</button>
-      </div>
-    </div>
-  </form>
-  <!-- /form handling -->
-  
-    
+    </form>
+    <!-- /form handling -->
   </div>
 </main>
 <!-- /Main Site -->

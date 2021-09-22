@@ -1,5 +1,7 @@
+// import mongoose as requirement
 const mongoose = require("mongoose");
 
+// create mongoose schema to interact with database
 var schema = new mongoose.Schema({
   job: {
     type: String,
@@ -32,6 +34,6 @@ var schema = new mongoose.Schema({
   },
 });
 
+// export the schema within a mongoose model
 const jobDB = mongoose.model("jobDB", schema);
-
 module.exports = jobDB;

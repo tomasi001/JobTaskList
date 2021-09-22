@@ -1,13 +1,15 @@
+// import mongoose model
 var jobDB = require("../model/model");
 
-// create and save new job
+// export function to create and save new job
 exports.create = (req, res) => {
   // validate request
   if (!req.body) {
     res.status(400).send({ message: "Content cannot be empty" });
     return;
   }
-  // new job
+  // create object to store new job
+  // information from request body
   const job = new jobDB({
     job: req.body.job,
     description: req.body.description,
@@ -16,7 +18,10 @@ exports.create = (req, res) => {
     status: req.body.status,
     archived: req.body.archived,
   });
+
   // save job in database
+  // redirect to /add-job route
+  // catch any errors
   job
     .save(job)
     .then((data) => {
@@ -30,11 +35,16 @@ exports.create = (req, res) => {
     });
 };
 
-// retrieve and return all jobs/ single job
-
+// export function to retrieve and return all jobs ordered by date
+// or to return a single job
 exports.findByDate = (req, res) => {
+  // validate request
   if (req.query.id) {
+    // store id from req.query
     const id = req.query.id;
+    // find job by id
+    // send data if it exist else alert user
+    // catch errors
     jobDB
       .findById(id)
       .then((data) => {
@@ -50,6 +60,10 @@ exports.findByDate = (req, res) => {
           .send({ message: `Error retrieving job with id: ${id}` });
       });
   } else {
+    // find all jobs
+    // sort them by date
+    // send information to page
+    // catch all errors
     jobDB
       .find({})
       .sort({ _id: -1 })
@@ -65,12 +79,18 @@ exports.findByDate = (req, res) => {
   }
 };
 
+// create object to be used as object organiser
 let status = {
   Submitted: 1,
   "In Progress": 2,
   Complete: 3,
 };
 
+// export function to find all jobs and
+// sort them by the order created in
+// status object
+// send information to page
+// catch all errors
 exports.findByStatus = (req, res) => {
   jobDB
     .find()
@@ -86,6 +106,9 @@ exports.findByStatus = (req, res) => {
     });
 };
 
+// export function to find all jobs
+// send information to page
+// catch all errors
 exports.findAll = (req, res) => {
   jobDB
     .find()
@@ -100,13 +123,19 @@ exports.findAll = (req, res) => {
     });
 };
 
-// update job by id
+// export function to update job by id
 exports.update = (req, res) => {
+  // validate request
   if (!req.body) {
     return res.status(400).send({ message: "Update Data cannot be empty" });
   }
-
+  // store ID from req.params
   const id = req.params.id;
+
+  // find job by id and update it
+  // if data doesn't exist alert user
+  // other wise send data to page
+  // catch all errors
   jobDB
     .findByIdAndUpdate(id, req.body)
     .then((data) => {
@@ -125,10 +154,15 @@ exports.update = (req, res) => {
     });
 };
 
-// delete job by id
+// export function to delete job by id
 exports.delete = (req, res) => {
+  // store id from req.params
   const id = req.params.id;
 
+  // find job by id and delete it
+  // if there is no data alert the user
+  // other wise notify user of success
+  // catch all errors
   jobDB
     .findByIdAndDelete(id)
     .then((data) => {

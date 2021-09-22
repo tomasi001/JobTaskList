@@ -6,6 +6,7 @@
   <div class="container">
     <div class="box-nav d-flex justify-between">
       <div class="filter">
+        <!-- create button to go back to home route -->
         <a href="/">
           <i class="fas fa-angle-double-left"></i>
           Back to Unfiltered List
@@ -35,7 +36,9 @@
         </tr>
       </thead>
       <tbody>
+        <!-- include filter complete  page -->
         <%- include("include/_filterComplete") %>
+        <!-- /include filter complete  page -->
       </tbody>
     </table>
   </div>
